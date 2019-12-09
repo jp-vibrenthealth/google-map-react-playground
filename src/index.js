@@ -1,13 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import constants from "./constants";
 
 import "./styles.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div className="mapContainer">
+      <LoadScript id="script-loader" googleMapsApiKey={constants.GMAPS_KEY}>
+        <GoogleMap
+          id="example-map"
+          center={constants.defaultCenter}
+          zoom={constants.defaultZoomLevel}
+        />
+      </LoadScript>
     </div>
   );
 }
